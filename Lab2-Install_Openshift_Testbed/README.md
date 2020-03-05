@@ -24,14 +24,77 @@ Change directory into openshift-testbed
 cd $HOME/Desktop/openshift-testbed
 ```
 
-Fork the following repositories to your own GitHub account:
+Fork the following repositories to your own GitHub account. We will be pushing changes to these repos in future labs
 - https://github.com/ably77/openshift-testbed-argo-iotdemo
 - https://github.com/ably77/openshift-testbed-argo-codeready
-- https://github.com/ably77/openshift-testbed-argo-voteapp-pipeline
-- https://github.com/ably77/openshift-testbed-argo-voteapp
-- https://github.com/ably77/openshift-testbed-argo-springbootpipeline
 
-Deploy openshift-testbed
+Modify the respective argo `runme.sh` script to point at your newly forked repositories
+```
+vim argocd/runme.sh
+```
+
+Change the variables to your forked repositories. It should look like below
+```
+#!/bin/bash
+
+# argo deployment varaiables
+argo_namespace="argocd"
+new_password="secret"
+argo_version="1.4.2"
+
+# commonly forked
+repo1_url="https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-iotdemo"
+repo2_url="https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-codeready"
+<...>
+```
+
+Now do the same for the argo apps themselves, first codeready
+```
+vim argocd/apps/openshift-testbed-argo-codeready
+```
+
+Your `openshift-testbed-argo-codeready.yaml` should look similar to below. Just uncomment and replace <YOUR_GITHUB_USER_HERE>
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-testbed-argo-codeready
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: main
+  source:
+    # comment out below if in workshop
+    repoURL: https://github.com/ably77/openshift-testbed-argo-codeready
+    # for use with workshops, uncomment below and replace <YOUR_GITHUB_USER_HERE>
+    #repoURL: https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-codeready
+```
+
+Now do the same for iotdemo
+```
+vim argocd/apps/openshift-testbed-argo-iotdemo.yaml
+```
+
+Your `openshift-testbed-argo-iotdemo.yaml` should look similar to below
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-testbed-argo-iotdemo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: main
+  source:
+    # comment out below if in workshop
+    repoURL: https://github.com/ably77/openshift-testbed-argo-iotdemo
+    # for use with workshops, uncomment below and replace <YOUR_GITHUB_USER_HERE>
+    #repoURL: https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-iotdemo
+```
+
+Now you're ready to Deploy openshift-testbed
 ```
 ./runme.sh
 ```
