@@ -65,4 +65,4 @@ ly-demo-7mb6r-worker-us-east-1c-rrd2v   Provisioned   r5.xlarge   us-east-1   us
 
 Navigate to the Administrators View > Administration > Cluster Settings. Select the upgrade candidate channel to select and upgrade
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/upgrade1.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/upgrade2.png)
