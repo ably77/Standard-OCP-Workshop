@@ -116,3 +116,15 @@ This script will:
 - Deploy CodeReady Workspaces
 - Create an Eclipse Che cluster with this demo's repositories
 - Deploy Tekton Pipelines Operator using ArgoCD
+
+## Complete
+
+The output of the script should result in several tabs being opened
+- argoCD UI
+- Grafana UI
+- CodeReady Workspaces UI
+- IoT Demo Application Dashboard
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/argo1.png)
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/iotdashboard1.png)
