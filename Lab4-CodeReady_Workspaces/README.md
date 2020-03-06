@@ -20,10 +20,14 @@ Modify the source locations of the repos below to your own forks
 
 Click Stop and then Open to restart the codeready workspaces with your changes
 
-### Connect to kubernetes-api on codeready workspace CLI for cluster-admin privileges
-```
-oc login -u standard -p <OMITTED> --insecure-skip-tls-verify=true --server https://api.<CLUSTER_NAME>.<CLUSTER_DOMAIN>:6443
-```
+## Demonstrating the IoT Demo and Configuration Management using argoCD + CodeReady
+By default, the demo will deploy an example IoT Temperature Sensors Demo using ArgoCD based on ![this repo](https://github.com/ably77/iot-argocd). This demo will deploy a consumer facing portal that collects temperature data from simulated IoT devices and processes them.
+
+![](https://github.com/ably77/strimzi-openshift-demo/blob/master/resources/iot1.png)
+
+This demo creates a couple of topics. The first one named `iot-temperature` is used by the device simulator for sending temperature values and by the stream application for getting such values and processing them. The second one is the `iot-temperature-max` topic where the stream application puts the max temperature value processed in the specified time window that is then displayed in real-time on the consumer facing dashboard in the gauges charts as well as the log of incoming messages.
+
+![](https://github.com/ably77/strimzi-openshift-demo/blob/master/resources/iot2.png)
 
 ### Auto-sync configuration changes with argocd
 Navigate to the openshift-testbed-argo-iotdemo directory --> device.yaml. Change replicas from 1 --> 15
@@ -38,7 +42,7 @@ Push your changes and enter in your Github credentials following to complete the
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready6.png)
 
-### Visualize in argoCD
+#### Visualize in argoCD
 Navigate to the argoCD UI
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/argocd1.png)
@@ -46,3 +50,23 @@ Navigate to the argoCD UI
 Select your openshift-testbed-argo-iotdemo tile to visualize the app. Wait for it to automatically sync or force a manual refresh
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/argocd2.png)
+
+#### Visualize in the iot dashboard app
+
+Switch to the Developer view and select Topology. Use the namespace myproject
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/iotdashboard2.png)
+
+Open the iot dashboard route
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/iotdashboard1.png)
+
+#### Visualize in Grafana
+In the Developer view Topology you can also select the grafana-deployment route to see grafana dashboards that ship with strimzi.
+- Kafka Dashboard
+- Kafka Exporter Dashboard
+- Zookeeper Dashboard
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/grafana1.png)
+
+![](https://github.com/ably77/strimzi-openshift-demo/blob/master/resources/grafana1.png)

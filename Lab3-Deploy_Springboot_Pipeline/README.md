@@ -1,4 +1,6 @@
-# Lab 3 - Deploying a Springboot pipeline
+# Lab 3 - Deploy a Spring Boot Pipeline with Git Push Trigger
+
+In this lab we will show a Spring Boot pipeline example where any `git push` to the repo will trigger a pipeline build.
 
 ### Install tkn CLI
 
@@ -115,3 +117,18 @@ or
 Switch to the Openshift Developer view and select Pipelines
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun2.png)
+
+Click on Topology and once the pipeline completes you can reach your route
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun3.png)
+
+### Open the UI
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/springboot1.png)
+
+
+### curl the springboot website for a Hello World response
+You can curl the springboot website at the `/v1/greeting` endpoint
+```
+curl basic-spring-boot-basic-spring-boot-build.apps.<CLUSTER_NAME>.<CLUSTER_DOMAIN>/v1/greeting
+```
