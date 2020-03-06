@@ -56,3 +56,20 @@ Run the Install script to deploy your OCP cluster
 ```
 ./install.sh
 ```
+
+Once installed, you can export your kubeconfig to access your cluster
+```
+export KUBECONFIG=$HOME/Desktop/<CLUSTER_NAME>/auth/kubeconfig
+```
+
+Verify that your cluster is connected by running a command such as `oc get nodes`
+
+This script will also set up a user/password login if you would prefer a user that is not kubeadmin but has cluster-admin privileges
+```
+oc login -u <OMITTED> -p <OMITTED> --insecure-skip-tls-verify=true --server https://api.<CLUSTER_NAME>.<CLUSTER_DOMAIN>:6443
+```
+
+To access the Openshift Console
+```
+oc get routes -n openshift-console
+```
