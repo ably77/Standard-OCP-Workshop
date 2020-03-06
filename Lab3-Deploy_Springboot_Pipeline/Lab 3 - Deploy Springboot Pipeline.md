@@ -97,7 +97,7 @@ inputs:
 ### Instantiate Pipeline with a Git Commit
 In your forked spring-rest repo, deliver an empty commit with the command below:
 ```
-"git commit -m "empty-commit" --allow-empty && git push origin master"
+git commit -m "empty-commit" --allow-empty && git push origin master
 ```
 
 ### Follow Pipeline logs through CLI:
