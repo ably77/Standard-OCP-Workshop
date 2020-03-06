@@ -1,6 +1,6 @@
-# Lab 3 - Deploy a Spring Boot Pipeline with Git Push Trigger
+# Lab 3 - Deploy a Spring Boot Tekton Pipeline with Git Push Webhook Trigger
 
-In this lab we will show a Spring Boot pipeline example where any `git push` to the repo will trigger a pipeline build.
+In this lab we will show a Spring Boot pipeline example using Tekton Pipelines where any `git push` to the forked repo will trigger a pipeline build.
 
 ### Install tkn CLI
 
