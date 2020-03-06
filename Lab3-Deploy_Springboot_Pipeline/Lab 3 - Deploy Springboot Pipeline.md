@@ -65,16 +65,25 @@ The output should look similar to below but with your specific parameters
 ```
 inputs:
     params:
+      # your github org - same as user if there is no org
     - name: GitHubOrg
       value: "ably77"
+      # your github user
     - name: GitHubUser
       value: "ably77"
+      # the name of your github repo, typically doesn't change
     - name: GitHubRepo
       value: "spring-rest"
+    - name: GitHubSecretName
+      value: webhook-secret
+    - name: GitHubAccessTokenKey
+      value: token
+    - name: GitHubSecretStringKey
+      value: secret
+      # external domain for your webhook listener route, replace <CLUSTER_NAME> and <CLUSTER_DOMAIN>
     - name: ExternalDomain
-      value: http://spring-boot-eventlistener-basic-spring-boot-build.apps.<CLUSTER_NAME>.<CLUSTER_DOMAIN>
-      # commented out example
-      #value: http://springboot-eventlistener-basic-spring-boot-build.apps.ly-demo.openshiftaws.com
+      #value: http://spring-boot-eventlistener-basic-spring-boot-build.apps.<CLUSTER_NAME>.<CLUSTER_DOMAIN>
+      value: http://springboot-eventlistener-basic-spring-boot-build.apps.ly-demo.openshiftaws.com
 ```
 
 ### Deploy Pipeline
