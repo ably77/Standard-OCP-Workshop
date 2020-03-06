@@ -12,7 +12,7 @@ Once the Codeready Workspace is complete, we will need to edit the workspace to 
 
 Select configure workspace
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready2.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready3.png)
 
 Modify the source locations of the repos below to your own forks
 - https://github.com/ably77/openshift-testbed-argo-iotdemo
