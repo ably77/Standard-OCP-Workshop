@@ -28,6 +28,7 @@ mv openshift-install openshift-install_4.2.20
 Rename the install-config.yaml
 ```
 mv install-config-scrubbed.yaml install-config.yaml
+```
 
 Modify your install-config.yaml with your appropriate parameters with your text editor of choice
 - {"DOMAIN_NAME"}
