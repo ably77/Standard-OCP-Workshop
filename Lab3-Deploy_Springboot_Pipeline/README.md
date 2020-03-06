@@ -20,11 +20,6 @@ curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darw
 sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
 ```
 
-Change into the tekton/springboot-tekton directory
-```
-cd tekton/springboot-tekton
-```
-
 ### Create a GitHub Web Token
 - https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token
 
@@ -35,6 +30,11 @@ Name: tekton-openshift
 Permission requirements for your Token:
 - public_repo
 - admin:repo_hook
+```
+
+### Navigate to the tekton/springboot-tekton directory
+```
+cd tekton/springboot-tekton
 ```
 
 ### Create Webhook Secret
