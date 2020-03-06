@@ -108,6 +108,10 @@ tkn pipeline logs -f
 ### Take a look at Developer UI
 Scroll down to the PipelineRun section of your Openshift Administrators view:
 
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun1.png)
+
 or
 
 Switch to the Openshift Developer view and select Pipelines
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun2.png)
