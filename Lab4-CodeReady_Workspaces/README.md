@@ -24,3 +24,25 @@ Click Stop and then Open to restart the codeready workspaces with your changes
 ```
 oc login -u standard -p <OMITTED> --insecure-skip-tls-verify=true --server https://api.<CLUSTER_NAME>.<CLUSTER_DOMAIN>:6443
 ```
+
+### Auto-sync configuration changes with argocd
+Navigate to the openshift-testbed-argo-iotdemo directory --> device.yaml. Change replicas from 1 --> 15
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready4.png)
+
+Select git on the left column and commit the change. Select the check to commit and optionally add a message like "update to 15".
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready5.png)
+
+Push your changes and enter in your Github credentials following to complete the push
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready6.png)
+
+### Visualize in argoCD
+Navigate to the argoCD UI
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/argocd1.png)
+
+Select your openshift-testbed-argo-iotdemo tile to visualize the app. Wait for it to automatically sync or force a manual refresh
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/argocd2.png)
