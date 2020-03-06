@@ -5,6 +5,11 @@ Download the latest Openshift installer (4.3.2) and `oc` CLI
 https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.2/
 ```
 
+Move the Openshift Installer into the lab 1 directory
+```
+mv </path/to/openshift/installer> <<CLUSTER_PATH>/Standard-OCP-Workshop/Lab1-Cluster_Installation/>
+```
+
 To start this lab, clone this repo to your desktop:
 ```
 git clone https://github.com/ably77/Standard-OCP-Workshop $HOME/Desktop/Standard-OCP-Workshop
