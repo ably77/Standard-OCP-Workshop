@@ -109,14 +109,19 @@ git commit -m "empty-commit" --allow-empty && git push origin master
 tkn pipeline logs -f
 ```
 
-### Take a look at Developer UI
-Scroll down to the PipelineRun section of your Openshift Administrators view:
+### In the Administrators View
+
+Navigate to your Workloads --> Pods section and select the basic-spring-boot-build namespace. Here you should see your pipeline pods
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun7.png)
+
+(4.3 ONLY) - Scroll down to the Pipeline --> PipelineRun section of your Openshift Administrators view:
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun1.png)
 
-or
+### Take a look at Developer UI
 
-Switch to the Openshift Developer view and select Pipelines
+Switch to the Openshift Developer view and select Pipelines --> Pipeline Runs
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun2.png)
 
