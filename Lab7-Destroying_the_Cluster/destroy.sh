@@ -2,7 +2,7 @@
 
 CLUSTER_NAME=ly-demo
 
-./openshift-install_4.2.20 destroy cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
+./$HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/openshift-install_4.2.20 destroy cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
 
 echo
 echo END.
