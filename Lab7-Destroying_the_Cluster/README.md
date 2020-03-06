@@ -1,15 +1,21 @@
 # Destroying the Cluster
 
-Included in this directory is a destroy script. Modify the CLUSTER_NAME to your own
+Navigate to the installer directory
 ```
-vim destroy.sh
+cd $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation
+```
 
-#!/bin/bash
-
+Set your cluster name variable
+```
 CLUSTER_NAME=ly-demo
 ```
 
-Run the `destroy.sh` script:
+Destroy the cluster
 ```
-./destroy.sh
+./openshift-install_4.2.20 destroy cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
+```
+
+Once complete, remove cluster directory
+```
+rm -rf $HOME/Desktop/<CLUSTER_NAME>
 ```
