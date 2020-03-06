@@ -34,7 +34,10 @@ Modify your install-config.yaml with your appropriate parameters with your text 
 - {"DOMAIN_NAME"}
 - {"CLUSTER_NAME"}
 - {"RESOURCE_GROUP_NAME"}
-- "{PULL_SECRET}"
+- "{PULL_SECRET}" - access this through try.openshift.com
+
+Optional - Not needed for lab:
+You can optionally provide the sshKey value that you use to access the machines in your cluster. This can be a common practice for production OpenShift Container Platform clusters on which you want to perform installation debugging or disaster recovery on, specify an SSH key that your ssh-agent process uses.
 - {"SSH_PUB_KEY"}
 
 ```

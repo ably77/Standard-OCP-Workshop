@@ -31,5 +31,6 @@ platform:
     region: westus2
 publish: External
 pullSecret: "{PULL_SECRET}"
-sshKey: |
-  {"SSH_PUB_KEY"}
+# optional
+#sshKey: |
+#  {"SSH_PUB_KEY"}
