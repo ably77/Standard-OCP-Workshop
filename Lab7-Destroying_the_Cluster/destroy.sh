@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLUSTER_NAME=ly-demo2
+CLUSTER_NAME=ly-demo
 
 ./openshift-install_4.3.2 destroy cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
 
