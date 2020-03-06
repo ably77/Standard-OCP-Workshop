@@ -7,7 +7,7 @@ https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.2/
 
 Move the Openshift Installer into the lab 1 directory
 ```
-mv </path/to/openshift/installer> <<CLUSTER_PATH>/Standard-OCP-Workshop/Lab1-Cluster_Installation/>
+mv </path/to/openshift/installer> <<CLUSTER_PATH>/Standard-OCP-Workshop/Lab1-Cluster_Installation/openshift-install_4.3.2>
 ```
 
 To start this lab, clone this repo to your desktop:
