@@ -15,14 +15,14 @@ To extract the installer
 tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/ -xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
 ```
 
-Rename the installer
-```
-mv $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/openshift-install $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/openshift-install_4.2.20
-```
-
 Change directory into Lab1
 ```
 cd $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation
+```
+
+Rename the installer
+```
+mv openshift-install openshift-install_4.2.20
 ```
 
 Rename the install-config.yaml
