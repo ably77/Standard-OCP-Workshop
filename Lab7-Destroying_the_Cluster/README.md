@@ -17,5 +17,5 @@ Destroy the cluster
 
 Once complete, remove cluster directory
 ```
-rm -rf $HOME/Desktop/<CLUSTER_NAME>
+rm -rf $HOME/Desktop/${CLUSTER_NAME}
 ```
