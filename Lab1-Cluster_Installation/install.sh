@@ -21,3 +21,8 @@ open https://console-openshift-console.apps.${CLUSTER_NAME}.${DOMAIN_NAME}
 
 ### export kubeconfig
 export KUBECONFIG=${CLUSTER_PATH}/${CLUSTER_NAME}/auth/kubeconfig
+
+### create user
+oc create -f auth/cluster_role_binding.yaml
+./auth/create_secret.sh
+oc apply -f auth/cr.yaml
