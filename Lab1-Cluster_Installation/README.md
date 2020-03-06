@@ -2,7 +2,7 @@
 
 Download the Openshift installer (4.2.20) and `oc` CLI.
 ```
-https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.2/
+https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
 ```
 
 To extract the installer:
