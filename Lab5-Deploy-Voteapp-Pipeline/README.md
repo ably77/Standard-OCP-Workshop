@@ -15,6 +15,11 @@ Since this app is governed by argoCD, deploying a PipelineRun that is not throug
 oc login -u <OMITTED> -p <OMITTED> --insecure-skip-tls-verify=true --server https://api.<CLUSTER_NAME>.<CLUSTER_DOMAIN>:6443
 ```
 
+#### Navigate to openshift-testbed
+```
+cd openshift-testbed
+```
+
 ### Manually deploy a PipelineRun that will Fail
 
 Create a PipelineRun
