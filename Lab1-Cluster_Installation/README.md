@@ -1,8 +1,13 @@
 # Lab 1 - Installing OCP on Azure
 
-Download the latest Openshift installer (4.3.2) and `oc` CLI
+Download the Openshift installer (4.2.20) and `oc` CLI.
 ```
 https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.2/
+```
+
+To extract the installer:
+```
+tar xvf <installation_program>.tar.gz
 ```
 
 To start this lab, clone this repo to your desktop:
