@@ -26,6 +26,14 @@ Modify your install-config.yaml with your appropriate parameters with your text 
 vim install-config.yaml
 ```
 
+Modify the top variables in the install.sh script to the same variables above
+```
+#!/bin/bash
+
+CLUSTER_NAME="ly-demo2"
+DOMAIN_NAME="openshiftaws.com"
+```
+
 Run the Install script to deploy your OCP cluster
 ```
 ./install.sh

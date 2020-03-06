@@ -1,8 +1,9 @@
 #!/bin/bash
 
 CLUSTER_NAME="ly-demo2"
-CLUSTER_PATH="$HOME/Desktop"
 DOMAIN_NAME="openshiftaws.com"
+
+CLUSTER_PATH="$HOME/Desktop"
 
 ### clear kubeconfig
 rm -rf ~/.kube/config
