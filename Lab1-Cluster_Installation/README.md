@@ -135,7 +135,12 @@ This script will also set up a user/password login if you would prefer a user th
 oc login -u <OMITTED> -p <OMITTED> --insecure-skip-tls-verify=true --server https://api.<CLUSTER_NAME>.<CLUSTER_DOMAIN>:6443
 ```
 
-To access the Openshift Console
+Verify your user:
+```
+oc whoami
+```
+
+The installer output should display your console link, but if you lose that tab you can access the Openshift Console with the command below:
 ```
 oc get routes -n openshift-console
 ```
