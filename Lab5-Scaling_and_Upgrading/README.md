@@ -4,15 +4,15 @@
 
 To scale your cluster with the UI, simply navigate to the Compute --> MachineSets section in your Administrators UI
 
-(Insert Pic Here)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/scale1.png)
 
 Select a machineSet and scale it from 1 to 2
 
-(Insert Pic Here)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/scale2.png)
 
 Navigate to the Nodes/Machine view to see your new machine being created
 
-(Insert Pic Here)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/scale3.png)
 
 ### Scaling using the CLI
 Get machine sets
@@ -64,3 +64,5 @@ ly-demo-7mb6r-worker-us-east-1c-rrd2v   Provisioned   r5.xlarge   us-east-1   us
 ### Upgrading your Cluster using the UI
 
 Navigate to the Administrators View > Administration > Cluster Settings. Select the upgrade candidate channel to select and upgrade
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/upgrade1.png)
