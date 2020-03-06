@@ -56,6 +56,8 @@ Fork the repo here: https://github.com/redhat-cop/spring-rest
 You will need this to push changes so you can instantiate your pipeline
 
 ### Clone your forked spring-rest repo
+
+In a new tab, clone your forked spring-rest repo
 ```
 git clone https://github.com/<GITHUB_USER>/spring-rest
 ```
