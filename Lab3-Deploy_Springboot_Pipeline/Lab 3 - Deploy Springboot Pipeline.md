@@ -53,12 +53,16 @@ Fork the repo here: https://github.com/redhat-cop/spring-rest
 
 You will need this to push changes so you can instantiate your pipeline
 
+### Clone your forked spring-rest repo
+```
+git clone https://github.com/<GITHUB_USER>/spring-rest
+```
+
 
 ### Modify the webhook taskrun to your Github
 Modify the following parameters in the `github-webhooks/wh-create-spring-repo-webhook-run.yaml`
 - GitHubOrg
 - GitHubUser
-- GitHubRepo
 - ExternalDomain
 
 The output should look similar to below but with your specific parameters
@@ -71,7 +75,6 @@ inputs:
       # your github user
     - name: GitHubUser
       value: "ably77"
-      # the name of your github repo, typically doesn't change
     - name: GitHubRepo
       value: "spring-rest"
     - name: GitHubSecretName
