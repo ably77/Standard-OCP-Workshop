@@ -1,18 +1,15 @@
 # Lab 2 - Installing Openshift-testbed
 
-To install Openshift-testbed first make sure you are connected to your cluster:
+### Verify oc connectivity
+
+To install Openshift-testbed first make sure you are connected to your cluster to a user with cluster-admin privileges
 ```
-export KUBECONFIG=${CLUSTER_PATH}/${CLUSTER_NAME}/auth/kubeconfig
+oc whoami
 ```
 
-To verify connectivity, just run a command such as `oc get nodes`. Output should look like below
-```
-$ oc get nodes
-NAME                           STATUS   ROLES    AGE     VERSION
-ip-10-0-133-249.ec2.internal   Ready    master   7h59m   v1.16.2
-ip-10-0-140-76.ec2.internal    Ready    worker   7h46m   v1.16.2
-ip-10-0-154-31.ec2.internal    Ready    worker   7h46m   v1.16.2
-```
+If the `oc` command above fails, connect to your cluster using the instructions in Lab 1. Note that if you're using the EXPORT kubeconfig method that every tab requires you to run the EXPORT command.
+
+## Installation
 
 Now you can clone the openshift-testbed repo
 ```
