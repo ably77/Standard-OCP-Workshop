@@ -17,8 +17,12 @@ cd $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation
 
 Move the Openshift Installer into the lab 1 directory
 ```
-mv </path/to/openshift/installer/> <<CLUSTER_PATH>/Standard-OCP-Workshop/Lab1-Cluster_Installation/openshift-install_4.3.2>
+mv </path/to/openshift/installer/> $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/openshift-install_4.3.2
 ```
+
+Rename the install-config.yaml
+```
+mv install-config-scrubbed.yaml install-config.yaml
 
 Modify your install-config.yaml with your appropriate parameters with your text editor of choice
 - {"DOMAIN_NAME"}
@@ -35,7 +39,7 @@ Modify the top variables in the install.sh script to the same variables above
 ```
 #!/bin/bash
 
-CLUSTER_NAME="ly-demo2"
+CLUSTER_NAME="ly-demo"
 DOMAIN_NAME="openshiftaws.com"
 ```
 

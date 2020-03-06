@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLUSTER_NAME="ly-demo2"
+CLUSTER_NAME="ly-demo"
 DOMAIN_NAME="openshiftaws.com"
 
 CLUSTER_PATH="$HOME/Desktop"
