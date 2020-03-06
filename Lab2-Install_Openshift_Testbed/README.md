@@ -50,7 +50,7 @@ repo2_url="https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-cod
 
 Now do the same for the argo apps themselves, first codeready
 ```
-vim argocd/apps/openshift-testbed-argo-codeready
+vim argocd/apps/1/openshift-testbed-argo-codeready.yaml
 ```
 
 Your `openshift-testbed-argo-codeready.yaml` should look similar to below. Just uncomment and replace <YOUR_GITHUB_USER_HERE>
@@ -73,7 +73,7 @@ spec:
 
 Now do the same for iotdemo
 ```
-vim argocd/apps/openshift-testbed-argo-iotdemo.yaml
+vim argocd/apps/2/openshift-testbed-argo-iotdemo.yaml
 ```
 
 Your `openshift-testbed-argo-iotdemo.yaml` should look similar to below

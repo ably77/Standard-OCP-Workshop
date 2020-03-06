@@ -70,3 +70,26 @@ inputs:
       # commented out example
       #value: http://springboot-eventlistener-basic-spring-boot-build.apps.ly-demo.openshiftaws.com
 ```
+
+### Deploy Pipeline
+```
+./runme.sh
+```
+
+### Instantiate Pipeline with a Git Commit
+In your forked spring-rest repo, deliver an empty commit with the command below:
+```
+"git commit -m "empty-commit" --allow-empty && git push origin master"
+```
+
+### Follow Pipeline logs through CLI:
+```
+tkn pipeline logs -f
+```
+
+### Take a look at Developer UI
+Scroll down to the PipelineRun section of your Openshift Administrators view:
+
+or
+
+Switch to the Openshift Developer view and select Pipelines
