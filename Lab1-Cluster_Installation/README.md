@@ -12,7 +12,7 @@ https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
 
 To extract the installer:
 ```
-tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/ xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
+tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/ -xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
 ```
 
 Change directory into Lab1
