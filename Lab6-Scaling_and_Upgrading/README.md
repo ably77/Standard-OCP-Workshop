@@ -66,3 +66,9 @@ ly-demo-7mb6r-worker-us-east-1c-rrd2v   Provisioned   r5.xlarge   us-east-1   us
 Navigate to the Administrators View > Administration > Cluster Settings. Select the upgrade candidate channel to select and upgrade
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/upgrade2.png)
+
+Upgrading will take about ~30 minutes to complete
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/upgrade3.png)
+
+Notice that openshift-testbed workloads survive the upgrade without issue. There may be some minor downtime for components depending on whether they're set up for HA in openshift-testbed.
