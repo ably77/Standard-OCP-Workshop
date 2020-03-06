@@ -1,5 +1,71 @@
 # Lab 1 - Installing OCP on Azure
 
+## Installing the `oc` client
+Download the openshift-client from the site below:
+```
+https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
+```
+Extract the compressed file and place it in a directory that is on your PATH.
+
+
+Or if you're using Homebrew on MacOSX
+```
+brew install openshift-cli
+```
+
+## Using `oc`
+The `oc` command is identical to `kubectl` in every way so you can use them interchangeably. `oc` does provide extra capabilities that `kubectl` does not have. This extra functionality is typically for administrative functions. For example you can explore the `oc adm` features:
+```
+$ oc adm
+Administrative Commands
+
+ Actions for administering an OpenShift cluster are exposed here.
+
+Usage:
+  oc adm [flags]
+
+Cluster Management:
+  upgrade                            Upgrade a cluster
+  top                                Show usage statistics of resources on the server
+  must-gather                        Launch a new instance of a pod for gathering debug information
+
+Node Management:
+  drain                              Drain node in preparation for maintenance
+  cordon                             Mark node as unschedulable
+  uncordon                           Mark node as schedulable
+  taint                              Update the taints on one or more nodes
+  node-logs                          Display and filter node logs
+
+Security and Policy:
+  new-project                        Create a new project
+  policy                             Manage cluster authorization and security policy
+  groups                             Manage groups
+  certificate                        Approve or reject certificate requests
+  pod-network                        Manage pod network
+
+Maintenance:
+  prune                              Remove older versions of resources from the server
+  migrate                            Migrate data in the cluster
+
+Configuration:
+  create-kubeconfig                  Create a basic .kubeconfig file from client certs
+  create-api-client-config           Create a config file for connecting to the server as a user
+  create-bootstrap-project-template  Create a bootstrap project template
+  create-bootstrap-policy-file       Create the default bootstrap policy
+  create-login-template              Create a login template
+  create-provider-selection-template Create a provider selection template
+  create-error-template              Create an error page template
+
+Other Commands:
+  build-chain                        Output the inputs and dependencies of your builds
+  completion                         Output shell completion code for the specified shell (bash or zsh)
+  config                             Change configuration files for the client
+  release                            Tools for managing the OpenShift release process
+  verify-image-signature             Verify the image identity contained in the image signature
+```
+
+## Start Installation Lab
+
 To start this lab, clone this repo to your desktop:
 ```
 git clone https://github.com/ably77/Standard-OCP-Workshop $HOME/Desktop/Standard-OCP-Workshop
