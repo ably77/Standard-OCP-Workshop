@@ -1,18 +1,18 @@
 # Lab 1 - Installing OCP on Azure
 
-Download the Openshift installer (4.2.20) and `oc` CLI.
+To start this lab, clone this repo to your desktop:
+```
+git clone https://github.com/ably77/Standard-OCP-Workshop $HOME/Desktop/Standard-OCP-Workshop
+```
+
+Download the Openshift installer (4.2.20) and `oc` CLI to your Desktop
 ```
 https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
 ```
 
 To extract the installer:
 ```
-tar xvf <installation_program>.tar.gz
-```
-
-To start this lab, clone this repo to your desktop:
-```
-git clone https://github.com/ably77/Standard-OCP-Workshop $HOME/Desktop/Standard-OCP-Workshop
+tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/ xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
 ```
 
 Change directory into Lab1
