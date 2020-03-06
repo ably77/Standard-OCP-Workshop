@@ -1,50 +1,72 @@
 # Lab 3 - Deploying a Springboot pipeline
 
-### Install tkn cli
+### Install tkn CLI
 
-Download the latest binary executable for your operating system:
+Install the latest tkn CLI at the link here: https://github.com/tektoncd/cli
 
-* Mac OS X
+For MacOS X Users:
+```
+brew tap tektoncd/tools
+brew install tektoncd/tools/tektoncd-cli
+```
+- Or by the [released tarball](https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darwin_x86_64.tar.gz):
 
-  - `tektoncd-cli` can be installed as a [brew tap](https://brew.sh):
+```
+# Get the tar.xz
+curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darwin_x86_64.tar.gz
+# Extract tkn to your PATH (e.g. /usr/local/bin)
+sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
+```
 
-  ```shell
-  brew tap tektoncd/tools
-  brew install tektoncd/tools/tektoncd-cli
-  ```
+Change into the tekton/springboot-tekton directory
+```
+cd tekton/springboot-tekton
+```
 
-  - Or by the [released tarball](https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darwin_x86_64.tar.gz):
+### Create a GitHub Web Token
+- https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token
 
-  ```shell
-  # Get the tar.xz
-  curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darwin_x86_64.tar.gz
-  # Extract tkn to your PATH (e.g. /usr/local/bin)
-  sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
-  ```
+Token Details
+```
+Name: tekton-openshift
 
-* Windows
+Permission requirements for your Token:
+- public_repo
+- admin:repo_hook
+```
 
-  - `tektoncd-cli` can be installed as a [Chocolatey package](https://chocolatey.org/packages/tektoncd-cli/):
+### Create Webhook Secret
+You will need to modify the file `github-webhooks/wh-webhook-secret.yaml` to include your github personal access token
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: webhook-secret
+stringData:
+  #https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token
+  token: <insert github personal access token here>
+  secret: random-string-data
+```
 
-  ```shell
-  choco install tektoncd-cli --confirm
-  ```
+### Modify the webhook taskrun to your Github
+Modify the following parameters in the `github-webhooks/wh-create-spring-repo-webhook-run.yaml`
+- GitHubOrg
+- GitHubUser
+- GitHubRepo
+- ExternalDomain
 
-  - Or by the released zip file in the instructions below:
-
-  - Uncompress the [zip file](https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Windows_x86_64.zip)
-  - Add the location of where the executable is to your `Path` by opening `Control Panel>System and Security>System>Advanced System Settings`
-  - Click on `Environment Variables`, select the `Path` variable, and click `Edit`
-  - Click `New` and add the location of the uncompressed zip to the `Path`
-  - Finish by clicking `Ok`
-
-#### Linux tarballs
-
-* [Linux AMD 64](https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Linux_x86_64.tar.gz)
-
-  ```shell
-  # Get the tar.xz
-  curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Linux_x86_64.tar.gz
-  # Extract tkn to your PATH (e.g. /usr/local/bin)
-  sudo tar xvzf tkn_0.8.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
-  ```
+The output should look similar to below but with your specific parameters
+```
+inputs:
+    params:
+    - name: GitHubOrg
+      value: "ably77"
+    - name: GitHubUser
+      value: "ably77"
+    - name: GitHubRepo
+      value: "spring-rest"
+    - name: ExternalDomain
+      value: http://spring-boot-eventlistener-basic-spring-boot-build.apps.<CLUSTER_NAME>.<CLUSTER_DOMAIN>
+      # commented out example
+      #value: http://springboot-eventlistener-basic-spring-boot-build.apps.ly-demo.openshiftaws.com
+```
