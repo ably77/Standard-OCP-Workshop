@@ -55,4 +55,4 @@ In the Developer View you can reach your application route easily through the To
 
 Notice the Container ID, if you re-run the pipeline and watch Openshift Events, Openshift Workload - Pods, argoCD UI, or click around on the website you will notice that pipelines run in the background and handle rolling deployments gracefully.
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/voteapp2.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/pipelinerun7.png)
