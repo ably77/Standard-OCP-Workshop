@@ -45,7 +45,7 @@ GITHUB_USERNAME=ably77
 
 #### Modify your argocd install script to point at newly forked repositories
 ```
-sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" argocd.runme.sh.template > $HOME/Desktop/openshift-testbed/argocd/runme.sh && chmod +x $HOME/Desktop/openshift-testbed/argocd/runme.sh
+sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab2-Install_Openshift_Testbed/argocd.runme.sh.template > $HOME/Desktop/openshift-testbed/argocd/runme.sh && chmod +x $HOME/Desktop/openshift-testbed/argocd/runme.sh
 ```
 
 #### Optional Verification: Take look at your changed file
@@ -61,7 +61,7 @@ repo2_url="https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-code
 
 ### Generate your codeready app openshift-testbed-argo-codeready.yaml to point at newly forked repositories
 ```
-sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" openshift-testbed-argo-codeready.yaml.template > $HOME/Desktop/openshift-testbed/argocd/apps/1/openshift-testbed-argo-codeready.yaml
+sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab2-Install_Openshift_Testbed/openshift-testbed-argo-codeready.yaml.template > $HOME/Desktop/openshift-testbed/argocd/apps/1/openshift-testbed-argo-codeready.yaml
 ```
 
 #### Optional Verification: Take look at your changed file

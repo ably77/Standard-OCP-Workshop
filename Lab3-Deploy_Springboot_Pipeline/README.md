@@ -46,7 +46,7 @@ GITHUB_TOKEN=111222333444
 
 #### Generate your webhook secret
 ```
-sed -e "s/<GITHUB_TOKEN>/${GITHUB_TOKEN}/g" webhook-secret.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-webhook-secret.yaml
+sed -e "s/<GITHUB_TOKEN>/${GITHUB_TOKEN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab3-Deploy_Springboot_Pipeline/webhook-secret.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-webhook-secret.yaml
 ```
 
 #### Optional Verification: Take look at your changed file
@@ -86,7 +86,7 @@ CLUSTER_DOMAIN=
 
 #### Generate your new wh-create-spring-repo-webhook-run.yaml
 ```
-sed -e "s/<GITHUB_ORG>/${GITHUB_ORG}/g" -e "s/<GITHUB_USER>/${GITHUB_USER}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" webhook-taskrun.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-create-spring-repo-webhook-run.yaml
+sed -e "s/<GITHUB_ORG>/${GITHUB_ORG}/g" -e "s/<GITHUB_USER>/${GITHUB_USER}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab3-Deploy_Springboot_Pipeline/webhook-taskrun.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-create-spring-repo-webhook-run.yaml
 ```
 
 #### Optional Verification: Take look at your changed file
