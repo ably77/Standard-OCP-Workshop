@@ -91,7 +91,6 @@ Rename the installer
 mv openshift-install openshift-install_4.2.20
 ```
 
-
 ## Generating cluster install-config.yaml
 - DOMAIN_NAME - A fully-qualified domain or subdomain name, such as example.com.
 - CLUSTER_NAME - The name of your cluster
@@ -103,34 +102,80 @@ mv openshift-install openshift-install_4.2.20
 DOMAIN_NAME=
 CLUSTER_NAME=
 RESOURCE_GROUP_NAME=
-PULL_SECRET=
 ```
 
 ### Azure - Generate your cluster install-config.yaml
 ```
-sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<RESOURCE_GROUP_NAME>/${RESOURCE_GROUP_NAME}/g" -e "s/<PULL_SECRET>/${PULL_SECRET}/g" install-config-azure.yaml.template > install-config.yaml
+sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<RESOURCE_GROUP_NAME>/${RESOURCE_GROUP_NAME}/g" install-config-azure.yaml.template > install-config.yaml
 ```
 
 ### If Deploying on AWS - Set the following variables
 ```
 DOMAIN_NAME=
 CLUSTER_NAME=
-PULL_SECRET=
 ```
 
 ### AWS - Generate your cluster install-config.yaml
 ```
-sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<PULL_SECRET>/${PULL_SECRET}/g" install-config-aws.yaml.template > install-config.yaml
+sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install-config-aws.yaml.template > install-config.yaml
 ```
 
 Optional - Not needed for lab:
 You can optionally uncomment and provide the sshKey value that you use to access the machines in your cluster. This can be a common practice for production OpenShift Container Platform clusters on which you want to perform installation debugging or disaster recovery on, specify an SSH key that your ssh-agent process uses.
 - <SSH_PUB_KEY>
 
+### Add your Pull Secret to your install-config.yaml
+Because variables don't populate quotes correctly using the `sed` command, use your favorite text editor to replace the `<PULL_SECRET>` with your own pull secret. To access your pull secret visit try.openshift.com
+```
+vim install-config.yaml
+```
+
 ### Verfication
 Take this time to verify that the generated install-config.yaml parameters have been populated
 ```
 cat install-config.yaml
+```
+
+Your completed `install-config.yaml` should look similar to the example below, (variables have been randomized in this example)
+```
+apiVersion: v1
+baseDomain: ocp-aws.com
+compute:
+- hyperthreading: Enabled
+  name: worker
+  platform:
+    aws:
+      type: r5.xlarge
+  replicas: 2
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  platform:
+    aws:
+      type: m5.xlarge
+      #type: c5.xlarge
+      zones:
+      - us-east-1a
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: redhat-cluster
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineCIDR: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  aws:
+    region: us-east-1
+#additionalTrustBundle: |
+#  -----BEGIN CERTIFICATE-----
+#  xxxyyyyzzzz
+#  -----END CERTIFICATE-----
+pullSecret: '111222333444'
 ```
 
 ### Create your install script

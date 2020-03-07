@@ -30,7 +30,7 @@ platform:
     baseDomainResourceGroupName: <RESOURCE_GROUP_NAME>
     region: westus2
 publish: External
-pullSecret: '<PULL_SECRET>'
 # optional
 #sshKey: |
 #  <SSH_PUB_KEY>
+pullSecret: '<PULL_SECRET>'

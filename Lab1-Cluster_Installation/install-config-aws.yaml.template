@@ -13,9 +13,9 @@ controlPlane:
   platform:
     aws:
       type: m5.xlarge
-      #zones:
-      #- us-east-1a
-  replicas: 1
+      zones:
+      - us-east-1a
+  replicas: 3
 metadata:
   creationTimestamp: null
   name: <CLUSTER_NAME>
@@ -34,7 +34,7 @@ platform:
 #  -----BEGIN CERTIFICATE-----
 #  xxxyyyyzzzz
 #  -----END CERTIFICATE-----
-pullSecret: '<PULL_SECRET>'
 # optional
 #sshKey: |
 #  <SSH_PUB_KEY>
+pullSecret: '<PULL_SECRET>'
