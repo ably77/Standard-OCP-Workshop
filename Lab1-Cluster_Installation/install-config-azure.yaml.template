@@ -1,0 +1,36 @@
+apiVersion: v1
+baseDomain: <DOMAIN_NAME>
+compute:
+- hyperthreading: Enabled
+  name: worker
+  platform:
+    azure:
+      type: Standard_D4s_v3
+  replicas: 3
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  platform:
+    azure:
+      type: Standard_D4s_v3
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: <CLUSTER_NAME>
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineCIDR: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  azure:
+    baseDomainResourceGroupName: <RESOURCE_GROUP_NAME>
+    region: westus2
+publish: External
+pullSecret: <PULL_SECRET>
+# optional
+#sshKey: |
+#  <SSH_PUB_KEY>

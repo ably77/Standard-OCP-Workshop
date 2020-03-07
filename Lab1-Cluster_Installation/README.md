@@ -91,31 +91,51 @@ Rename the installer
 mv openshift-install openshift-install_4.2.20
 ```
 
-Rename the install-config.yaml
+
+## Generating cluster install-config.yaml
+- DOMAIN_NAME - A fully-qualified domain or subdomain name, such as example.com.
+- CLUSTER_NAME - The name of your cluster
+- RESOURCE_GROUP_NAME - The name of the resource group that contains the DNS zone for your base domain. (Azure only)
+- PULL_SECRET - The pull secret that you obtained from the Pull Secret page on the Red Hat OpenShift Cluster Manager (try.openshift.com) site.
+
+### If Deploying on Azure - Set the following variables
 ```
-mv install-config-scrubbed.yaml install-config.yaml
+DOMAIN_NAME=
+CLUSTER_NAME=
+RESOURCE_GROUP_NAME=
+PULL_SECRET=
 ```
 
-Modify your install-config.yaml with your appropriate parameters with your text editor of choice
-- {"DOMAIN_NAME"}
-- {"CLUSTER_NAME"}
-- {"RESOURCE_GROUP_NAME"}
-- "{PULL_SECRET}" - access this through try.openshift.com
+### Azure - Generate your cluster install-config.yaml
+```
+sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<RESOURCE_GROUP_NAME>/${RESOURCE_GROUP_NAME}/g" -e "s/<PULL_SECRET>/${PULL_SECRET}/g" install-config-azure.yaml.template > install-config.yaml
+```
+
+### If Deploying on AWS - Set the following variables
+```
+DOMAIN_NAME=
+CLUSTER_NAME=
+PULL_SECRET=
+```
+
+### AWS - Generate your cluster install-config.yaml
+```
+sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<PULL_SECRET>/${PULL_SECRET}/g" install-config-aws.yaml.template > install-config.yaml
+```
 
 Optional - Not needed for lab:
-You can optionally provide the sshKey value that you use to access the machines in your cluster. This can be a common practice for production OpenShift Container Platform clusters on which you want to perform installation debugging or disaster recovery on, specify an SSH key that your ssh-agent process uses.
-- {"SSH_PUB_KEY"}
+You can optionally uncomment and provide the sshKey value that you use to access the machines in your cluster. This can be a common practice for production OpenShift Container Platform clusters on which you want to perform installation debugging or disaster recovery on, specify an SSH key that your ssh-agent process uses.
+- <SSH_PUB_KEY>
 
+### Verfication
+Take this time to verify that the generated install-config.yaml parameters have been populated
 ```
-vim install-config.yaml
+cat install-config.yaml
 ```
 
-Modify the top variables in the install.sh script to the same variables above
+### Create your install script
 ```
-#!/bin/bash
-
-CLUSTER_NAME="ly-demo"
-DOMAIN_NAME="openshiftaws.com"
+sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install.sh.template > install.sh && chmod +x install.sh
 ```
 
 Run the Install script to deploy your OCP cluster

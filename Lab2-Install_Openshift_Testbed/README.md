@@ -20,7 +20,7 @@ brew install argoproj/tap/argocd
 
 ## Installation
 
-Now you can clone the openshift-testbed repo
+### Clone the repo
 ```
 git clone https://github.com/ably77/openshift-testbed $HOME/Desktop/openshift-testbed
 ```
@@ -30,83 +30,53 @@ Change directory into openshift-testbed
 cd $HOME/Desktop/openshift-testbed
 ```
 
+### Fork the following repositories
 Fork the following repositories to your own GitHub account. We will be pushing changes to these repos in future labs
 - https://github.com/ably77/openshift-testbed-argo-iotdemo
 - https://github.com/ably77/openshift-testbed-argo-codeready
 
-Modify the respective argo `runme.sh` script to point at your newly forked repositories
+
+### Set up the correct script and YAML parameters
+
+#### Set your github username as a variable
 ```
-vim argocd/runme.sh
+GITHUB_USERNAME=ably777
 ```
 
-Change the variables to your forked repositories. It should look like below
+#### Modify your argocd install script to point at newly forked repositories
 ```
+sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" argocd.runme.sh.template > $HOME/Desktop/openshift-testbed/argocd/runme.sh && chmod +x $HOME/Desktop/openshift-testbed/argocd/runme.sh
+```
+
+#### Optional Verification: Take look at your changed file
+```
+$ cat $HOME/Desktop/openshift-testbed/argocd/runme.sh
 #!/bin/bash
-
-# argo deployment varaiables
-argo_namespace="argocd"
-new_password="secret"
-argo_version="1.4.2"
+<...>
 
 # commonly forked
-repo1_url="https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-iotdemo"
-repo2_url="https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-codeready"
+repo1_url="https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-iotdemo"
+repo2_url="https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-codeready"
+```
+
+### Generate your codeready app openshift-testbed-argo-codeready.yaml to point at newly forked repositories
+```
+sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" openshift-testbed-argo-codeready.yaml.template > $HOME/Desktop/openshift-testbed/argocd/apps/1/openshift-testbed-argo-codeready.yaml
+```
+
+#### Optional Verification: Take look at your changed file
+```
+$ cat $HOME/Desktop/openshift-testbed/argocd/apps/1/openshift-testbed-argo-codeready.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 <...>
-```
-
-### Modify CodeReady Demo app to your fork
-
-Now do the same for the argo apps themselves, first codeready
-```
-vim argocd/apps/1/openshift-testbed-argo-codeready.yaml
-```
-
-Your `openshift-testbed-argo-codeready.yaml` should look similar to below. Just uncomment and replace <YOUR_GITHUB_USER_HERE>
-```
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: openshift-testbed-argo-codeready
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: main
   source:
-    # comment out below if in workshop
-    repoURL: https://github.com/ably77/openshift-testbed-argo-codeready
-    # for use with workshops, uncomment below and replace <YOUR_GITHUB_USER_HERE>
-    #repoURL: https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-codeready
-```
-
-### Modify IoT Demo app to your fork
-
-Now do the same for iotdemo
-```
-vim argocd/apps/2/openshift-testbed-argo-iotdemo.yaml
-```
-
-Your `openshift-testbed-argo-iotdemo.yaml` should look similar to below
-```
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: openshift-testbed-argo-iotdemo
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: main
-  source:
-    # comment out below if in workshop
-    repoURL: https://github.com/ably77/openshift-testbed-argo-iotdemo
-    # for use with workshops, uncomment below and replace <YOUR_GITHUB_USER_HERE>
-    #repoURL: https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-iotdemo
+    repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-codeready
 ```
 
 ### In your openshift-testbed-argo-codeready GitHub fork
 
-In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own cluster
+In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own cluster. Either make your edits and push to the repo, or edit within the GitHub UI
 ```
 apiVersion: org.eclipse.che/v1
 kind: CheCluster
@@ -122,6 +92,10 @@ identityProviderRealm: codeready
     #identityProviderURL: 'http://keycloak-codeready.apps.<CLUSTER_NAME>.<DOMAIN_NAME>'
 <...>
 ```
+
+Note: Be careful of YAML indentations
+
+## Installing openshift-testbed
 
 Now you're ready to Deploy openshift-testbed
 ```
