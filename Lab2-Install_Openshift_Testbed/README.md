@@ -9,6 +9,15 @@ oc whoami
 
 If the `oc` command above fails, connect to your cluster using the instructions in Lab 1. Note that if you're using the EXPORT kubeconfig method that every tab requires you to run the EXPORT command.
 
+### Install ArgoCLI
+To deploy openshift-testbed you will need the argoCLI - https://github.com/argoproj/argo-cd/blob/master/docs/cli_installation.md
+
+Install with Homebrew
+```
+brew tap argoproj/tap
+brew install argoproj/tap/argocd
+```
+
 ## Installation
 
 Now you can clone the openshift-testbed repo
@@ -45,6 +54,8 @@ repo2_url="https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-cod
 <...>
 ```
 
+### Modify CodeReady Demo app to your fork
+
 Now do the same for the argo apps themselves, first codeready
 ```
 vim argocd/apps/1/openshift-testbed-argo-codeready.yaml
@@ -68,6 +79,8 @@ spec:
     #repoURL: https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-codeready
 ```
 
+### Modify IoT Demo app to your fork
+
 Now do the same for iotdemo
 ```
 vim argocd/apps/2/openshift-testbed-argo-iotdemo.yaml
@@ -89,6 +102,25 @@ spec:
     repoURL: https://github.com/ably77/openshift-testbed-argo-iotdemo
     # for use with workshops, uncomment below and replace <YOUR_GITHUB_USER_HERE>
     #repoURL: https://github.com/<YOUR_GITHUB_USER_HERE>/openshift-testbed-argo-iotdemo
+```
+
+### In your openshift-testbed-argo-codeready GitHub fork
+
+In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own cluster
+```
+apiVersion: org.eclipse.che/v1
+kind: CheCluster
+metadata:
+  name: codeready-workspaces
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false
+spec:
+<...>
+identityProviderRealm: codeready
+    identityProviderURL: 'http://keycloak-codeready.apps.ly-demo.openshiftaws.com'
+    # for use in workshops, uncomment and replace the <CLUSTER_NAME> and <DOMAIN_NAME> with the correct parameters
+    #identityProviderURL: 'http://keycloak-codeready.apps.<CLUSTER_NAME>.<DOMAIN_NAME>'
+<...>
 ```
 
 Now you're ready to Deploy openshift-testbed
