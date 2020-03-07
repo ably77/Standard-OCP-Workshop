@@ -94,28 +94,15 @@ mv openshift-install openshift-install_4.2.20
 ## Generating cluster install-config.yaml
 - DOMAIN_NAME - A fully-qualified domain or subdomain name, such as example.com.
 - CLUSTER_NAME - The name of your cluster
-- RESOURCE_GROUP_NAME - The name of the resource group that contains the DNS zone for your base domain. (Azure only)
 - PULL_SECRET - The pull secret that you obtained from the Pull Secret page on the Red Hat OpenShift Cluster Manager (try.openshift.com) site.
 
-### If Deploying on Azure - Set the following variables
-```
-DOMAIN_NAME=
-CLUSTER_NAME=
-RESOURCE_GROUP_NAME=
-```
-
-### Azure - Generate your cluster install-config.yaml
-```
-sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<RESOURCE_GROUP_NAME>/${RESOURCE_GROUP_NAME}/g" install-config-azure.yaml.template > install-config.yaml
-```
-
-### If Deploying on AWS - Set the following variables
+### Set the following variables
 ```
 DOMAIN_NAME=
 CLUSTER_NAME=
 ```
 
-### AWS - Generate your cluster install-config.yaml
+### Generate your cluster install-config.yaml
 ```
 sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install-config-aws.yaml.template > install-config.yaml
 ```
