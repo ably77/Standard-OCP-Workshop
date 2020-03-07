@@ -178,6 +178,7 @@ pullSecret: '{"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZG
 ```
 
 ### Create your install script
+This install script helps to create a cluster directory at $HOME/Desktop before deploying the cluster. After the cluster deployment is complete, it will also set up an HTPasswd auth user and open up your console route.
 ```
 sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install.sh.template > install.sh && chmod +x install.sh
 ```
