@@ -89,7 +89,7 @@ inputs:
       value: secret
       # external domain for your webhook listener route, replace <CLUSTER_NAME> and <CLUSTER_DOMAIN>
     - name: ExternalDomain
-      #value: http://spring-boot-eventlistener-basic-spring-boot-build.apps.<CLUSTER_NAME>.<CLUSTER_DOMAIN>
+      #value: http://springboot-eventlistener-basic-spring-boot-build.apps.<CLUSTER_NAME>.<CLUSTER_DOMAIN>
       value: http://springboot-eventlistener-basic-spring-boot-build.apps.ly-demo.openshiftaws.com
 ```
 
