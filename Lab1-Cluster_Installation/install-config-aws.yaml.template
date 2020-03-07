@@ -34,7 +34,7 @@ platform:
 #  -----BEGIN CERTIFICATE-----
 #  xxxyyyyzzzz
 #  -----END CERTIFICATE-----
-pullSecret: <PULL_SECRET>
+pullSecret: '<PULL_SECRET>'
 # optional
 #sshKey: |
 #  <SSH_PUB_KEY>

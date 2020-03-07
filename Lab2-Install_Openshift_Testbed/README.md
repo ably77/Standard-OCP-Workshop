@@ -40,7 +40,7 @@ Fork the following repositories to your own GitHub account. We will be pushing c
 
 #### Set your github username as a variable
 ```
-GITHUB_USERNAME=ably777
+GITHUB_USERNAME=ably77
 ```
 
 #### Modify your argocd install script to point at newly forked repositories
