@@ -5,6 +5,10 @@ The first step will be to register a new user, fill in the form with any informa
 
 ![](https://github.com/ably77/strimzi-openshift-demo/blob/master/resources/codeready1.png)
 
+### Fork the following repositories
+- https://github.com/ably77/openshift-testbed-argo-iotdemo
+- https://github.com/ably77/openshift-testbed-argo-voteapp-pipeline
+
 ### Edit workspace to own forks
 Once the Codeready Workspace is complete, we will need to edit the workspace to work with our forks. Select the yellow triangle at the top left --> Workspaces
 
@@ -14,9 +18,10 @@ Select configure workspace
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/codeready3.png)
 
+### Modify the devfile source locations
 Modify the source locations of the repos below to your own forks
 - https://github.com/ably77/openshift-testbed-argo-iotdemo
-- https://github.com/ably77/spring-rest
+- https://github.com/ably77/openshift-testbed-argo-voteapp-pipeline
 
 Click Stop and then Open to restart the codeready workspaces with your changes
 
