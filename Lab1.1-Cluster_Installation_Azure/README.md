@@ -98,21 +98,21 @@ mv openshift-install openshift-install_4.2.20
 ```
 
 ## Generating cluster install-config.yaml
-- DOMAIN_NAME - A fully-qualified domain or subdomain name, such as example.com.
+- CLUSTER_DOMAIN - A fully-qualified domain or subdomain name, such as example.com.
 - CLUSTER_NAME - The name of your cluster
 - RESOURCE_GROUP_NAME - The name of the resource group that contains the DNS zone for your base domain.
 - PULL_SECRET - The pull secret that you obtained from the Pull Secret page on the Red Hat OpenShift Cluster Manager (try.openshift.com) site.
 
 ### Set the following variables
 ```
-DOMAIN_NAME=
+CLUSTER_DOMAIN=
 CLUSTER_NAME=
 RESOURCE_GROUP_NAME=
 ```
 
 ### Generate your cluster install-config.yaml
 ```
-sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<RESOURCE_GROUP_NAME>/${RESOURCE_GROUP_NAME}/g" install-config-azure.yaml.template > install-config.yaml
+sed -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<RESOURCE_GROUP_NAME>/${RESOURCE_GROUP_NAME}/g" install-config-azure.yaml.template > install-config.yaml
 ```
 
 Optional - Not needed for lab:
@@ -174,7 +174,7 @@ pullSecret: '{"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZG
 ### Create your install script
 This install script helps to create a cluster directory at $HOME/Desktop/${CLUSTER_NAME before deploying the cluster. After the cluster deployment is complete, it will also set up an HTPasswd auth user and open up your console route.
 ```
-sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install.sh.template > install.sh && chmod +x install.sh
+sed -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install.sh.template > install.sh && chmod +x install.sh
 ```
 
 Run the Install script to deploy your OCP cluster
