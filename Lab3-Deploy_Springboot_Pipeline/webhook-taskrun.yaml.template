@@ -12,7 +12,7 @@ spec:
     - name: GitHubOrg
       value: "<GITHUB_ORG>"
     - name: GitHubUser
-      value: "<GITHUB_USER>"
+      value: "<GITHUB_USERNAME>"
     - name: GitHubRepo
       value: "spring-rest"
     - name: GitHubSecretName
