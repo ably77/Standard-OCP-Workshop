@@ -1,5 +1,11 @@
 # Lab 1 - Installing OCP on Azure
 
+## About this Workshop
+
+This lab uses the path `$HOME/Desktop` so that it is possible to maintain some standard path to the commands in this workshop.
+
+## Prerequisites
+
 ## Installing the `oc` client
 Download the openshift-client from the site below:
 ```
@@ -78,7 +84,7 @@ https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
 
 To extract the installer
 ```
-tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/ -xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
+tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation_Azure/ -xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
 ```
 
 Change directory into Lab1
@@ -166,7 +172,7 @@ pullSecret: '{"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZG
 ```
 
 ### Create your install script
-This install script helps to create a cluster directory at $HOME/Desktop before deploying the cluster. After the cluster deployment is complete, it will also set up an HTPasswd auth user and open up your console route.
+This install script helps to create a cluster directory at $HOME/Desktop/${CLUSTER_NAME before deploying the cluster. After the cluster deployment is complete, it will also set up an HTPasswd auth user and open up your console route.
 ```
 sed -e "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" install.sh.template > install.sh && chmod +x install.sh
 ```

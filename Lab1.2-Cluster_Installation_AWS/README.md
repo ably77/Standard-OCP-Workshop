@@ -1,6 +1,12 @@
 # Lab 1 - Installing OCP on Azure
 
-## Installing the `oc` client
+## About this Workshop
+
+This lab uses the path `$HOME/Desktop` so that it is possible to maintain some standard path to the commands in this workshop.
+
+## Prerequisites
+
+### Installing the `oc` client
 Download the openshift-client from the site below:
 ```
 https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
@@ -13,7 +19,7 @@ Or if you're using Homebrew on MacOSX
 brew install openshift-cli
 ```
 
-## Using `oc`
+#### Using `oc`
 The `oc` command is identical to `kubectl` in every way so you can use them interchangeably. `oc` does provide extra capabilities that `kubectl` does not have. This extra functionality is typically for administrative functions. For example you can explore the `oc adm` features:
 ```
 $ oc adm
@@ -78,7 +84,7 @@ https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.2.20/
 
 To extract the installer
 ```
-tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation/ -xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
+tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation_AWS/ -xvf $HOME/Desktop/openshift-install-mac-4.2.20.tar.gz
 ```
 
 Change directory into Lab1
