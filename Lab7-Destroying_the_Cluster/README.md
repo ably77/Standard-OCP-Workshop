@@ -1,20 +1,29 @@
 # Destroying the Cluster
 
-Navigate to the installer directory
+### Navigate to the installer directory
+
+#### Azure
 ```
-cd $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation
+cd $HOME/Desktop/Standard-OCP-Workshop/Lab1.1-Cluster_Installation_Azure
 ```
 
+#### AWS
+```
+cd $HOME/Desktop/Standard-OCP-Workshop/Lab1.2-Cluster_Installation_AWS
+```
+
+### Set you cluster name variable
 Set your cluster name variable, for example
 ```
 CLUSTER_NAME=ocpdemo
 ```
 
-Destroy the cluster
+### Destroy the cluster
 ```
 ./openshift-install_4.2.20 destroy cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
 ```
 
+### Remove the installer directory
 Once complete, remove cluster directory
 ```
 rm -rf $HOME/Desktop/${CLUSTER_NAME}
