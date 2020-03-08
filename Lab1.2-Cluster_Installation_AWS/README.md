@@ -206,16 +206,27 @@ Run the Install script to deploy your OCP cluster
 ./install.sh
 ```
 
+### Connect to Openshift using kubeconfig
 Once installed, you can export your kubeconfig to access your cluster
 ```
-export KUBECONFIG=$HOME/Desktop/<CLUSTER_NAME>/auth/kubeconfig
+export KUBECONFIG=$HOME/Desktop/${CLUSTER_NAME}/auth/kubeconfig
 ```
 
 Verify that your cluster is connected by running a command such as `oc get nodes`
 
-This script will also set up a user/password login if you would prefer a user that is not kubeadmin but has cluster-admin privileges
+This script will also set up a user/password login if you would prefer a user that is not kubeadmin but has cluster-admin privileges.
+
+
+### Connect to Openshift with a user
+Set your username/password. This demo will default to user redhat/workshop
 ```
-oc login -u <OMITTED> -p <OMITTED> --insecure-skip-tls-verify=true --server https://api.<CLUSTER_NAME>.<CLUSTER_DOMAIN>:6443
+USER=redhat
+PASSWORD=workshop
+```
+
+Run the command below to login
+```
+oc login -u ${USER} -p ${PASSWORD} --insecure-skip-tls-verify=true --server https://api.${CLUSTER_NAME}.${CLUSTER_DOMAIN}:6443
 ```
 
 Verify your user:
