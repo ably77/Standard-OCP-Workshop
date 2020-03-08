@@ -1,4 +1,4 @@
-# Lab 1 - Installing OCP on Azure
+# Lab 1 - Installing OCP on AWS
 
 ## About this Workshop
 
