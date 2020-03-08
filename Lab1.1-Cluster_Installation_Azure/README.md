@@ -89,7 +89,7 @@ tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1.1-Cluster_Installation_Azure/ -x
 
 Change directory into Lab1
 ```
-cd $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation
+cd $HOME/Desktop/Standard-OCP-Workshop/Lab1.1-Cluster_Installation_Azure
 ```
 
 Rename the installer

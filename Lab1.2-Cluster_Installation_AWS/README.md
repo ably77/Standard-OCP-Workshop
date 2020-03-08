@@ -89,7 +89,7 @@ tar -C $HOME/Desktop/Standard-OCP-Workshop/Lab1.2-Cluster_Installation_AWS/ -xvf
 
 Change directory into Lab1
 ```
-cd $HOME/Desktop/Standard-OCP-Workshop/Lab1-Cluster_Installation
+cd $HOME/Desktop/Standard-OCP-Workshop/Lab1.2-Cluster_Installation_AWS
 ```
 
 Rename the installer
