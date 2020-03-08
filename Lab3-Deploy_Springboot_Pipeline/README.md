@@ -2,6 +2,29 @@
 
 In this lab we will show a Spring Boot pipeline example using Tekton Pipelines where any `git push` to the forked repo will trigger a pipeline build.
 
+## Prerequisites
+
+### Create a Github Personal Access Token
+- https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token
+
+Token Details
+```
+Name: tekton-openshift
+
+Permission requirements for your Token:
+- public_repo
+- admin:repo_hook
+```
+
+### Variables required in this Lab Section
+```
+GITHUB_ORG=
+GITHUB_USERNAME=
+CLUSTER_NAME=
+CLUSTER_DOMAIN=
+GITHUB_TOKEN=
+```
+
 ### Install tkn CLI
 
 Install the latest tkn CLI at the link here: https://github.com/tektoncd/cli
@@ -20,17 +43,7 @@ curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darw
 sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
 ```
 
-### Create a GitHub Web Token
-- https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token
-
-Token Details
-```
-Name: tekton-openshift
-
-Permission requirements for your Token:
-- public_repo
-- admin:repo_hook
-```
+## Deploying a Springboot Pipeline
 
 ### Navigate to the tekton/springboot-tekton directory
 ```
@@ -38,11 +51,6 @@ cd tekton/springboot-tekton
 ```
 
 ### Generate your Webhook Secret
-
-#### Set your github token as a variable
-```
-GITHUB_TOKEN=
-```
 
 #### Generate your webhook secret
 ```
@@ -67,22 +75,7 @@ Fork the repo here: https://github.com/redhat-cop/spring-rest
 
 You will need this to push changes so you can instantiate your pipeline
 
-### Clone your forked spring-rest repo
-
-In a new tab, clone your forked spring-rest repo. You will need this later to push changes to
-```
-git clone https://github.com/${GITHUB_USERNAME}/spring-rest
-```
-
 ### Generate your webhook taskrun
-
-#### Set the following variables
-```
-GITHUB_ORG=
-GITHUB_USERNAME=
-CLUSTER_NAME=
-CLUSTER_DOMAIN=
-```
 
 #### Generate your new wh-create-spring-repo-webhook-run.yaml
 ```
@@ -119,6 +112,18 @@ inputs:
 ### Deploy Pipeline
 ```
 ./runme.sh
+```
+
+### Clone your forked spring-rest repo
+
+In a new tab, clone your forked spring-rest repo. You will need this later to push changes to
+```
+git clone https://github.com/${GITHUB_USERNAME}/spring-rest
+```
+
+### Navigate to spring-rest directory
+```
+cd spring-rest
 ```
 
 ### Instantiate Pipeline with a Git Commit
