@@ -41,7 +41,7 @@ cd tekton/springboot-tekton
 
 #### Set your github token as a variable
 ```
-GITHUB_TOKEN=111222333444
+GITHUB_TOKEN=
 ```
 
 #### Generate your webhook secret
@@ -71,7 +71,7 @@ You will need this to push changes so you can instantiate your pipeline
 
 In a new tab, clone your forked spring-rest repo. You will need this later to push changes to
 ```
-git clone https://github.com/<GITHUB_USER>/spring-rest
+git clone https://github.com/${GITHUB_USERNAME}/spring-rest
 ```
 
 ### Generate your webhook taskrun
@@ -79,14 +79,14 @@ git clone https://github.com/<GITHUB_USER>/spring-rest
 #### Set the following variables
 ```
 GITHUB_ORG=
-GITHUB_USER=
+GITHUB_USERNAME=
 CLUSTER_NAME=
 CLUSTER_DOMAIN=
 ```
 
 #### Generate your new wh-create-spring-repo-webhook-run.yaml
 ```
-sed -e "s/<GITHUB_ORG>/${GITHUB_ORG}/g" -e "s/<GITHUB_USER>/${GITHUB_USER}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab3-Deploy_Springboot_Pipeline/webhook-taskrun.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-create-spring-repo-webhook-run.yaml
+sed -e "s/<GITHUB_ORG>/${GITHUB_ORG}/g" -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab3-Deploy_Springboot_Pipeline/webhook-taskrun.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-create-spring-repo-webhook-run.yaml
 ```
 
 #### Optional Verification: Take look at your changed file
