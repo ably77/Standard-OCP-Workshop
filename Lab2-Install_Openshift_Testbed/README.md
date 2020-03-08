@@ -77,6 +77,9 @@ kind: Application
 ### In your openshift-testbed-argo-codeready GitHub fork
 
 In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own CLUSTER_NAME and CLUSTER_DOMAIN. Either make your edits and push to the repo, or edit within the GitHub UI
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/github1.png)
+
 ```
 apiVersion: org.eclipse.che/v1
 kind: CheCluster
@@ -98,6 +101,9 @@ Note: Be careful of YAML indentations
 ### In your openshift-testbed-argo-iotdemo GitHub fork
 
 In your openshift-testbed-argo-iotdemo fork in GitHub, modify the parameter `host:` to point at your own CLUSTER_NAME and CLUSTER_DOMAIN. Either make your edits and push to the repo, or edit within the GitHub UI
+
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/github2.png)
+
 ```
 ---
 apiVersion: route.openshift.io/v1
