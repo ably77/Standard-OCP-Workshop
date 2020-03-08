@@ -6,7 +6,7 @@ compute:
   platform:
     azure:
       type: Standard_D4s_v3
-  replicas: 3
+  replicas: 2
 controlPlane:
   hyperthreading: Enabled
   name: master

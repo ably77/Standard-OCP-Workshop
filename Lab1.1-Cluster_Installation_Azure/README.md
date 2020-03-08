@@ -70,6 +70,19 @@ Other Commands:
   verify-image-signature             Verify the image identity contained in the image signature
 ```
 
+### Log in to Azure CLI
+```
+az login
+```
+
+### Configuring a public DNS zone in Azure
+
+In order for the installer to function properly, a public DNS zone should already be created in Azure. Follow the documentation below to complete this process if you haven't done so already.
+
+*NOTE:* If any public DNS zone already exists in your account/organization you can feel free to use it. Multiple clusters can share the same public DNS zone.
+
+(https://docs.openshift.com/container-platform/4.2/installing/installing_azure/installing-azure-account.html#installation-azure-network-config_installing-azure-account)
+
 ## Start Installation Lab
 
 To start this lab, clone this repo to your desktop:

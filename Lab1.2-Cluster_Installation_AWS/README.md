@@ -70,6 +70,31 @@ Other Commands:
   verify-image-signature             Verify the image identity contained in the image signature
 ```
 
+### Configuring an AWS account
+
+#### Route 53 hosted zone
+In order for the installer to function properly, a dedicated public hosted Route53 zone should already be created in AWS. Follow the documentation below to complete this process if you haven't done so already.
+
+*NOTE:* If any Route53 dedicated public hosted zone already exists in your account/organization you can feel free to use it. Multiple clusters can share the same public DNS zone.
+
+(https://docs.openshift.com/container-platform/4.2/installing/installing_aws/installing-aws-account.html#installation-aws-route53_installing-aws-account)
+
+#### AWS Profile and IAM user
+An IAM user with `AdministratorAccess` is required for the installer to create a cluster. Follow the instructions below if you do not have access to an IAM user with the correct privileges.
+
+(https://docs.openshift.com/container-platform/4.2/installing/installing_aws/installing-aws-account.html#installation-aws-iam-user_installing-aws-account)
+
+Verify that your Amazon Web Services (AWS) profile stored on your computer, this consists of the AWS access key ID and secret access key for the user that you configured to run the installation program.
+
+These IAM credentials typically live in the `~/.aws/credentials` directory, for example
+```
+$ cat ~/.aws/credentials
+[default]
+aws_access_key_id     = BFRE2GPP2WLEZRHSWQQZ
+aws_secret_access_key = 8YmsPjIhRTFv0TLwi+o83TbP/NN812SAVViUOLLA
+```
+
+
 ## Start Installation Lab
 
 To start this lab, clone this repo to your desktop:
