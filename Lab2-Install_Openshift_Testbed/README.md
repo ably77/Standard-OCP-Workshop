@@ -76,7 +76,7 @@ kind: Application
 
 ### In your openshift-testbed-argo-codeready GitHub fork
 
-In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own cluster. Either make your edits and push to the repo, or edit within the GitHub UI
+In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own CLUSTER_NAME and CLUSTER_DOMAIN. Either make your edits and push to the repo, or edit within the GitHub UI
 ```
 apiVersion: org.eclipse.che/v1
 kind: CheCluster
@@ -90,6 +90,29 @@ identityProviderRealm: codeready
     identityProviderURL: 'http://keycloak-codeready.apps.ly-demo.openshiftaws.com'
     # for use in workshops, uncomment and replace the <CLUSTER_NAME> and <DOMAIN_NAME> with the correct parameters
     #identityProviderURL: 'http://keycloak-codeready.apps.<CLUSTER_NAME>.<DOMAIN_NAME>'
+<...>
+```
+
+Note: Be careful of YAML indentations
+
+### In your openshift-testbed-argo-iotdemo GitHub fork
+
+In your openshift-testbed-argo-iotdemo fork in GitHub, modify the parameter `host:` to point at your own CLUSTER_NAME and CLUSTER_DOMAIN. Either make your edits and push to the repo, or edit within the GitHub UI
+```
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+<...>
+spec:
+  host: consumer-app-myproject.apps.ly-demo.openshiftaws.com
+  # for use in workshops, uncomment and replace the <CLUSTER_NAME> and <DOMAIN_NAME> with the correct parameters
+  # host: consumer-app-myproject.apps.<CLUSTER_NAME>.<DOMAIN_NAME>
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: consumer-app
+    weight: 100
 <...>
 ```
 
