@@ -13,7 +13,7 @@ rm -rf ~/.kube/config
 mkdir $HOME/Desktop/${CLUSTER_NAME}
 
 ### copy ignition into cluster directory
-cp $HOME/Desktop/installer/install-config.yaml $HOME/Desktop/${CLUSTER_NAME}
+cp $HOME/Desktop/Standard-OCP-Workshop/Lab1.1-Cluster_Installation_Azure/install-config.yaml $HOME/Desktop/${CLUSTER_NAME}
 
 ### create cluster
 ./openshift-install_${CLUSTER_VERSION} create cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
