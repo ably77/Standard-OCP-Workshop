@@ -33,7 +33,6 @@ cd $HOME/Desktop/openshift-testbed
 ### Fork the following repositories
 Fork the following repositories to your own GitHub account. We will be pushing changes to these repos in future labs
 - https://github.com/ably77/openshift-testbed-argo-iotdemo
-- https://github.com/ably77/openshift-testbed-argo-codeready
 
 
 ### Set up the correct script and YAML parameters
@@ -56,47 +55,7 @@ $ cat $HOME/Desktop/openshift-testbed/argocd/runme.sh
 
 # commonly forked
 repo1_url="https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-iotdemo"
-repo2_url="https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-codeready"
 ```
-
-### Generate your codeready app openshift-testbed-argo-codeready.yaml to point at newly forked repositories
-```
-sed -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab2-Install_Openshift_Testbed/openshift-testbed-argo-codeready.yaml.template > $HOME/Desktop/openshift-testbed/argocd/apps/1/openshift-testbed-argo-codeready.yaml
-```
-
-#### Optional Verification: Take look at your changed file
-```
-$ cat $HOME/Desktop/openshift-testbed/argocd/apps/1/openshift-testbed-argo-codeready.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-<...>
-  source:
-    repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/openshift-testbed-argo-codeready
-```
-
-### In your openshift-testbed-argo-codeready GitHub fork
-
-In your openshift-testbed-argo-codeready fork in GitHub, modify the parameter `identityProviderURL:` to point at your own CLUSTER_NAME and CLUSTER_DOMAIN. Either make your edits and push to the repo, or edit within the GitHub UI
-
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/github1.png)
-
-```
-apiVersion: org.eclipse.che/v1
-kind: CheCluster
-metadata:
-  name: codeready-workspaces
-  annotations:
-    argocd.argoproj.io/sync-options: Validate=false
-spec:
-<...>
-identityProviderRealm: codeready
-    identityProviderURL: 'http://keycloak-codeready.apps.ly-demo.openshiftaws.com'
-    # for use in workshops, uncomment and replace the <CLUSTER_NAME> and <DOMAIN_NAME> with the correct parameters
-    #identityProviderURL: 'http://keycloak-codeready.apps.<CLUSTER_NAME>.<DOMAIN_NAME>'
-<...>
-```
-
-Note: Be careful of YAML indentations
 
 ### In your openshift-testbed-argo-iotdemo GitHub fork
 
