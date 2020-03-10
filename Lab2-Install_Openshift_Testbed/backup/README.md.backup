@@ -80,6 +80,11 @@ spec:
 <...>
 ```
 
+### Generate your openshift-testbed install script to capture any customizations
+```
+sed -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab2-Install_Openshift_Testbed/openshift-testbed-runme.sh.template > $HOME/Desktop/openshift-testbed/runme.sh
+```
+
 ## Installing openshift-testbed
 
 Now you're ready to Deploy openshift-testbed
