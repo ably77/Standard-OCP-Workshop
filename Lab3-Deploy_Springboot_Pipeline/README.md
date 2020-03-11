@@ -16,15 +16,6 @@ Permission requirements for your Token:
 - admin:repo_hook
 ```
 
-### Variables required in this Lab Section
-```
-GITHUB_ORG=
-GITHUB_USERNAME=
-CLUSTER_NAME=
-CLUSTER_DOMAIN=
-GITHUB_TOKEN=
-```
-
 ### Install tkn CLI
 
 Install the latest tkn CLI at the link here: https://github.com/tektoncd/cli
@@ -43,6 +34,11 @@ curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darw
 sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
 ```
 
+### Fork the spring-rest repo
+Fork the repo here: https://github.com/redhat-cop/spring-rest
+
+You will need this to push changes so you can instantiate your pipeline
+
 ## Deploying a Springboot Pipeline
 
 ### Navigate to the tekton/springboot-tekton directory
@@ -50,64 +46,13 @@ sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
 cd tekton/springboot-tekton
 ```
 
-### Generate your Webhook Secret
-
-#### Generate your webhook secret
-```
-sed -e "s/<GITHUB_TOKEN>/${GITHUB_TOKEN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab3-Deploy_Springboot_Pipeline/webhook-secret.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-webhook-secret.yaml
-```
-
-#### Optional Verification: Take look at your changed file
-```
-$ cat $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-webhook-secret.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: webhook-secret
-stringData:
-  #https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token
-  token: 111222333444
-  secret: random-string-data
-```
-
-### Fork the spring-rest repo
-Fork the repo here: https://github.com/redhat-cop/spring-rest
-
-You will need this to push changes so you can instantiate your pipeline
-
-### Generate your webhook taskrun
-
-#### Generate your new wh-create-spring-repo-webhook-run.yaml
-```
-sed -e "s/<GITHUB_ORG>/${GITHUB_ORG}/g" -e "s/<GITHUB_USERNAME>/${GITHUB_USERNAME}/g" -e "s/<CLUSTER_NAME>/${CLUSTER_NAME}/g" -e "s/<CLUSTER_DOMAIN>/${CLUSTER_DOMAIN}/g" $HOME/Desktop/Standard-OCP-Workshop/Lab3-Deploy_Springboot_Pipeline/webhook-taskrun.yaml.template > $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-create-spring-repo-webhook-run.yaml
-```
-
-#### Optional Verification: Take look at your changed file
-```
-cat $HOME/Desktop/openshift-testbed/tekton/springboot-tekton/github-webhooks/wh-create-spring-repo-webhook-run.yaml
-```
-
-The output should look similar to below but with your specific parameters
-```
-inputs:
-    params:
-      # your github org - same as user if there is no org
-    - name: GitHubOrg
-      value: "ably77"
-      # your github user
-    - name: GitHubUser
-      value: "ably77"
-    - name: GitHubRepo
-      value: "spring-rest"
-    - name: GitHubSecretName
-      value: webhook-secret
-    - name: GitHubAccessTokenKey
-      value: token
-    - name: GitHubSecretStringKey
-      value: secret
-    - name: ExternalDomain
-      value: http://springboot-eventlistener-basic-spring-boot-build.apps.ly-demo.openshiftaws.com
-```
+### Variables
+The script below will run and ask for a few variables, please have these readily available
+- CLUSTER_NAME
+- CLUSTER_DOMAIN
+- GITHUB_USERNAME
+- GITHUB_ORG (same as username if no org exists)
+- GITHUB_TOKEN
 
 ### Deploy Pipeline
 ```
