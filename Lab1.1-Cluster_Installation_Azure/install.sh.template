@@ -16,7 +16,7 @@ mkdir $HOME/Desktop/${CLUSTER_NAME}
 cp $HOME/Desktop/Standard-OCP-Workshop/Lab1.1-Cluster_Installation_Azure/install-config.yaml $HOME/Desktop/${CLUSTER_NAME}
 
 ### create cluster
-./openshift-install_${CLUSTER_VERSION} create cluster --dir=$HOME/Desktop/${CLUSTER_NAME} --log-level debug
+./openshift-install_${CLUSTER_VERSION} create cluster --dir=$HOME/Desktop/${CLUSTER_NAME}
 
 ### open console route
 open https://console-openshift-console.apps.${CLUSTER_NAME}.${CLUSTER_DOMAIN}
