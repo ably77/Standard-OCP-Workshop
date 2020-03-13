@@ -18,8 +18,6 @@ Let's start with a simple example, destroying one of the stateless iot-demo simu
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos2.png)
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos3.png)
-
 ### Deleting the IoT Consumer Dashboard
 For this example we will be destroying the consumer-app. This app only has a `replicaset: 1` so we would expect to see some downtime if this component went down. What you will see though, is that with argoCD and GitOps in place, this recovery is quick and requires no manual intervention.
 
@@ -31,7 +29,7 @@ In a separate screen, navigate to the IoT Dashboard so you can see the affect on
 #### In the argoCD UI
 Following the same steps as above, delete the consumer-app deployment this time. You should immediately see many pods switch to `Terminating` state, and new pods being created.
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos4.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos3.png)
 
 #### Back in the IoT Dashboard
 You should see all of the devices clear and the app go down. Keep an eye on the argoCD UI for pods that are `Running`. Once in the correct state, verify that a refresh of the IoT Dashboard webpage should return back to desired state.
@@ -42,7 +40,7 @@ In the argoCD UI, navigate to the `openshift-testbed-argo-kafka` application. Fo
 #### Delete Zookeeper
 Following the same steps as above, delete the `my-cluster-zookeeper-` deployment this time. You should immediately see the pod switch to `Terminating` state, and new pod being created.
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos5.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos4.png)
 
 #### IoT Dashboard
 You should see in the IoT Dashboard UI that destroying one of the zookeeper back-end components should not have any affect to the viewer
@@ -50,12 +48,12 @@ You should see in the IoT Dashboard UI that destroying one of the zookeeper back
 #### Check the Openshift Events
 In the Openshift UI, navigate to Home --> Events and select the namespace `myproject` you should see the specific scheduler events and related information on pod termination and re-creation
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos6.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos5.png)
 
 ### Delete a Kafka Broker
 Following the same steps as above, delete the `my-cluster-kafka-` deployment this time. You should immediately see the pod switch to `Terminating` state, and new pod being created.
 
-![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos7.png)
+![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/chaos6.png)
 
 #### Observed Results
 Taking a look at the iot-temperature topic (https://github.com/ably77/openshift-testbed-argo-iotdemo/blob/master/iot-temperature-topic.yml)
