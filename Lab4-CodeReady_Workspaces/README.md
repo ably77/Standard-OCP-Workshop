@@ -7,7 +7,7 @@ The first step will be to register a new user, fill in the form with any informa
 
 ### Fork the following repositories
 - https://github.com/ably77/openshift-testbed-argo-iotdemo
-- https://github.com/ably77/openshift-testbed-argo-voteapp-pipeline
+- https://github.com/ably77/openshift-testbed-argo-voteapp-pipeline (you will need this for Lab 5)
 
 ### Edit workspace to own forks
 Once the Codeready Workspace is complete, we will need to edit the workspace to work with our forks. Select the yellow triangle at the top left --> Workspaces
@@ -58,7 +58,7 @@ Select your openshift-testbed-argo-iotdemo tile to visualize the app. Wait for i
 
 #### Visualize in the iot dashboard app
 
-Switch to the Developer view and select Topology. Use the namespace myproject
+Switch to the Developer view and select Topology. Use the namespace iot-dashboard
 
 ![](https://github.com/ably77/Standard-OCP-Workshop/blob/master/resources/iotdashboard2.png)
 
